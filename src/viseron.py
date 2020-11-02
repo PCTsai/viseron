@@ -88,8 +88,9 @@ class Viseron:
                 thread.stop()
                 thread.join()
 
-        # Listen to sigterm
+        # Listen to signals
         signal.signal(signal.SIGTERM, signal_term)
+        signal.signal(signal.SIGINT, signal_term)
 
         try:
             for thread in threads:
